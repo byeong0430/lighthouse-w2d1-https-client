@@ -6,8 +6,7 @@
 const https = require('https');
 
 function getAndPrintHTMLChunks(){
-  let HTMLresult = '';
-  let requestOptions = {
+  const requestOptions = {
     host: 'sytantris.github.io',
     path: '/http-examples/step1.html'
   };
@@ -21,8 +20,7 @@ function getAndPrintHTMLChunks(){
     response.on('data', function (chunk){
       console.log('Chunk Received. Length: ', chunk.length);
       // console.log each chunk of data and concatenate with a newline character
-      console.log(chunk.concat('\n'));
-      HTMLresult += chunk;
+      console.log(chunk.concat('\n'));  
     });
 
     // Invoke the callback when there is an error
@@ -32,8 +30,6 @@ function getAndPrintHTMLChunks(){
 
     // Invoke this callback when all of the data has been received
     response.on('end', function (){
-      console.log('Final Result');
-      console.log(HTMLresult);
       console.log('Response stream complete.');
     });
   });
