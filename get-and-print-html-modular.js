@@ -5,15 +5,11 @@
 */
 const https = require('https');
 
-function getAndPrintHTML(){
+function getAndPrintHTML(options){
   let htmlResult = '';
-  const requestOptions = {
-    host: 'sytantris.github.io',
-    path: '/http-examples/step2.html'
-  };
 
-  // Use GET (http verb) to send a request (requestOptions) and receive a response
-  https.get(requestOptions, function (response){
+  // Use GET (http verb) to send a request (options) and receive a response
+  https.get(options, function (response){
     // response is a stream. Set the encoding to UTF-8
     response.setEncoding('UTF8');
 
@@ -37,4 +33,9 @@ function getAndPrintHTML(){
   });
 }
 
-getAndPrintHTML();
+const requestOptions = {
+  host: 'sytantris.github.io',
+  path: '/http-examples/step3.html'
+};
+
+getAndPrintHTML(requestOptions);
