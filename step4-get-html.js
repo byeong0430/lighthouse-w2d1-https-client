@@ -1,5 +1,5 @@
-
-function getAndPrintHTML(options){
+function getHTML(options, callback){
+  // Require a built-in module called https
   const https = require('https');
   let htmlResult = '';
 
@@ -23,14 +23,18 @@ function getAndPrintHTML(options){
     // Invoke this callback when all of the data has been received
     response.on('end', function (){
       console.log('Response stream complete.');
-      console.log(htmlResult);
+      callback(htmlResult);
     });
   });
 }
 
+function printHTML(html){
+  console.log(html);
+}
+
 const requestOptions = {
   host: 'sytantris.github.io',
-  path: '/http-examples/step3.html'
+  path: '/http-examples/step4.html'
 };
 
-getAndPrintHTML(requestOptions);
+getHTML(requestOptions, printHTML);

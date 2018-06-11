@@ -1,16 +1,11 @@
-/* 
-  getAndPrintHTML() will be invoked multiple times.
-  Thus, https module should only required once.
-  Require a built-in https module
-*/
-const https = require('https');
 
 function getAndPrintHTML(){
-  let htmlResult = '';
+  const https = require('https');
   const requestOptions = {
     host: 'sytantris.github.io',
     path: '/http-examples/step2.html'
   };
+  let htmlResult = '';
 
   // Use GET (http verb) to send a request (requestOptions) and receive a response
   https.get(requestOptions, function (response){

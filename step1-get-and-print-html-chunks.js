@@ -1,11 +1,6 @@
-/* 
-  getAndPrintHTMLChunks() will be invoked multiple times.
-  Thus, https module should only required once.
-  Require a built-in https module
-*/
-const https = require('https');
 
 function getAndPrintHTMLChunks(){
+  const https = require('https');
   const requestOptions = {
     host: 'sytantris.github.io',
     path: '/http-examples/step1.html'
